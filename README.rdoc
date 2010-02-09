@@ -1,0 +1,38 @@
+== DESCRIPTION
+
+This sample Blackberry application demonstrates an approach for long running background tasks management, such tasks can perform an http request, process some calculations etc. While the task is running it displays a simple progress dialog screen that has 'Cancel' button - which (surprisingly) cancels the task.
+
+== USAGE
+
+=== Define the task class, should extend RunnableTask
+  
+  public class MyTask extends RunnableTask {
+	public void process(String popupText) {
+		super.process(popupText);
+	}
+  }
+
+=== Initialize it by defining the following four Actions::
+
+* jobAction - incapsulates the task logic itself (a long http request for instance)
+* successAction - this action will be executed when the jobAction finished successfully
+* cancelAction - this atcion will be executed if the jobAction was interrupted by user
+* failureAction  - this atcion will be called when it jobAction throws an exception during its run
+
+  public class MyTask extends RunnableTask {
+	public void process(String popupText) {
+		setJobAction(new ReturningResultRunnableTaskAction() {...} );
+		setSuccessAction(new RunnableTaskAction() {...} );
+		setCancelAction(new RunnableTaskAction() {...} );
+		setFailureAction(new RunnableTaskAction() {...} );
+
+		super.process(popupText);
+	}
+  }
+
+=== Launch it
+
+  new MyTask().process('Please wait...');
+
+This line of code will launch the jobAction in background while a progress dialog is on top. User would be able to cancel it using a button on the progress dialog
+
