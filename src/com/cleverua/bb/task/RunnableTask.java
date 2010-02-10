@@ -8,10 +8,10 @@ import net.rim.device.api.ui.container.PopupScreen;
 public class RunnableTask implements Runnable {
 
 	protected boolean canceled = false;
-	private ReturningResultRunnableTaskAction jobAction;
-	private RunnableTaskAction successAction;
-	private RunnableTaskAction cancelAction;
-	private RunnableTaskAction failureAction;
+	private Action jobAction;
+	private Action successAction;
+	private Action cancelAction;
+	private Action failureAction;
 	private Thread processThread;
 	private TaskProgressPopup taskProgressPopup;
 	private Object result = null;
@@ -21,6 +21,7 @@ public class RunnableTask implements Runnable {
 			// 1. Invoke main job block
 			result = jobAction.execute(null);
 
+			//TODO:Review this condition
 			// 2. If we are not cancelled - invoke successblock
 			if (!canceled && successAction != null) {
 				hideProgress();
@@ -57,19 +58,19 @@ public class RunnableTask implements Runnable {
 		}
 	}
 
-	public void setJobAction(ReturningResultRunnableTaskAction block) {
+	public void setJobAction(Action block) {
 		this.jobAction = block;
 	}
 
-	public void setSuccessAction(RunnableTaskAction block) {
+	public void setSuccessAction(Action block) {
 		this.successAction = block;
 	}
 
-	public void setCancelAction(RunnableTaskAction block) {
+	public void setCancelAction(Action block) {
 		this.cancelAction = block;
 	}
 
-	public void setFailureAction(RunnableTaskAction block) {
+	public void setFailureAction(Action block) {
 		this.failureAction = block;
 	}
 

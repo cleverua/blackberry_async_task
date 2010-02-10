@@ -22,12 +22,11 @@ AutoRestart=0
 ExcludeFromBuildAll=0
 [Files
 src\com\cleverua\bb\example\AsyncTaskApplication.java
-src\com\cleverua\bb\example\task_demo\FailureTask.java
-src\com\cleverua\bb\example\task_demo\SuccessfullTask.java
-src\com\cleverua\bb\example\ui\AsyncTaskScreen.java
-src\com\cleverua\bb\task\ReturningResultRunnableTaskAction.java
+src\com\cleverua\bb\example\AsyncTaskScreen.java
+src\com\cleverua\bb\example\FailureTask.java
+src\com\cleverua\bb\example\SuccessfullTask.java
+src\com\cleverua\bb\task\Action.java
 src\com\cleverua\bb\task\RunnableTask.java
-src\com\cleverua\bb\task\RunnableTaskAction.java
 src\com\cleverua\bb\task\TaskProgressPopup.java
 ]
 HaveAlxImports=0

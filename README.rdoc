@@ -7,12 +7,10 @@ This sample Blackberry application demonstrates an approach for long running bac
 === Define the task class, should extend RunnableTask
   
   public class MyTask extends RunnableTask {
-	public void process(String popupText) {
-		super.process(popupText);
-	}
+    ...
   }
 
-=== Initialize it by defining the following four Actions::
+=== Initialize it by defining the following four Actions:
 
 * jobAction - incapsulates the task logic itself (a long http request for instance)
 * successAction - this action will be executed when the jobAction finished successfully
@@ -20,14 +18,12 @@ This sample Blackberry application demonstrates an approach for long running bac
 * failureAction  - this atcion will be called when it jobAction throws an exception during its run
 
   public class MyTask extends RunnableTask {
-	public void process(String popupText) {
-		setJobAction(new ReturningResultRunnableTaskAction() {...} );
-		setSuccessAction(new RunnableTaskAction() {...} );
-		setCancelAction(new RunnableTaskAction() {...} );
-		setFailureAction(new RunnableTaskAction() {...} );
-
-		super.process(popupText);
-	}
+    public MyTask() {
+      setJobAction(new Action() {...} );
+      setSuccessAction(new Action() {...} );
+      setCancelAction(new Action() {...} );
+      setFailureAction(new Action() {...} );
+    }
   }
 
 === Launch it
@@ -35,4 +31,8 @@ This sample Blackberry application demonstrates an approach for long running bac
   new MyTask().process('Please wait...');
 
 This line of code will launch the jobAction in background while a progress dialog is on top. User would be able to cancel it using a button on the progress dialog
+
+== EXAMPLES
+
+To see a couple of examples please launch AsyncTaskApplication (com.cleverua.bb.example) in BlackBerry device simulator.
 

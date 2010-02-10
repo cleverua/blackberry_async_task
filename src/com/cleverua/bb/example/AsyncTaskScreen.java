@@ -1,11 +1,9 @@
-package cleverua.bb.example.ui;
+package cleverua.bb.example;
 
 import net.rim.device.api.ui.Field;
 import net.rim.device.api.ui.FieldChangeListener;
 import net.rim.device.api.ui.component.ButtonField;
 import net.rim.device.api.ui.container.MainScreen;
-import cleverua.bb.example.task_demo.FailureTask;
-import cleverua.bb.example.task_demo.SuccessfullTask;
 
 public class AsyncTaskScreen extends MainScreen {
 	private static final String ASYNC_TASK_SCREEN_TITLE = "Async Task Demo";

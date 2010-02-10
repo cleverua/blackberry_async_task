@@ -1,6 +1,5 @@
 package cleverua.bb.example;
 
-import cleverua.bb.example.ui.AsyncTaskScreen;
 import net.rim.device.api.ui.UiApplication;
 import net.rim.device.api.ui.component.Dialog;
 
