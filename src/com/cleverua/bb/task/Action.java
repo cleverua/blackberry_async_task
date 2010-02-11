@@ -1,5 +1,5 @@
-package cleverua.bb.task;
+package com.cleverua.bb.task;
 
 public interface Action {
-	public Object execute(Object context) throws Exception;
+    public Object execute(Object context) throws Exception;
 }
